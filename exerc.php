@@ -4,7 +4,7 @@
 
     try
     {
-        $conexao = new PDO("mysql: host=localhost; dbname=spaceinvaders;", "root", "");
+        $conexao = new PDO("mysql: host=localhost; dbname=dogeminer;", "root", "");
     
         $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -16,7 +16,7 @@
     }
 
 
-    try
+   /*  try
     {
         $sql = "SELECT sobrenome, id, nome FROM Jogadores WHERE id = 4";
 
@@ -34,7 +34,7 @@
         echo "Recuperar falhou, erro: " . $error->getMessage();
     } 
 
-    $conexao =  null;
+    $conexao =  null; */
 
 
     /* try
@@ -70,13 +70,14 @@
     {
         $sql = "CREATE TABLE Jogadores(
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(30) NOT NULL,
-        sobrenome VARCHAR(30) NOT NULL,
-        dataDeRegistro TIMESTAMP)";
-
-        $sql2 = "ALTER TABLE Jogadores ADD email VARCHAR(30) NOT NULL;";
+        email VARCHAR(30) NOT NULL,
+        senha VARCHAR(30) NOT NULL,
+        pontos INT(30) NOT NULL,
+        mult1 INT(30) NOT NULL,
+        mult2 INT(30) NOT NULL,
+        mult3 INT(30) NOT NULL)";
         
-        $conexao->exec($sql2);
+        $conexao->exec($sql);
         echo "Tabela criada com sucesso<br>";
     }
     catch (PDOException $error)
@@ -85,10 +86,10 @@
     } */
 
 
-    //Cria um BD
-    /* try
+    /* //Cria um BD
+    try
     {
-        $conexao->exec("CREATE SCHEMA spaceinvaders");
+        $conexao->exec("CREATE SCHEMA dogeMiner");
         echo "Banco de dados criado";
     }
     catch (PDOException $error)

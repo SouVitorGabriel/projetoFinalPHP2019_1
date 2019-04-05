@@ -1,4 +1,13 @@
+var email = document.getElementById("email");
+var senha = document.getElementById("senha");
+var pontos = document.getElementById("pontos");
+var multi1 = document.getElementById("multi1");
+var multi2 = document.getElementById("multi2");
+var multi3 = document.getElementById("multi3");
 
+/* ?email=meil@meil,senha=123,pontos=092,multi1=1,multi2=1,multi3=1 */
+
+alert("Email:" + email);
 
 var canvas = document.getElementById("jogo");
 
