@@ -5,15 +5,57 @@ var multi1 = document.getElementById("multi1");
 var multi2 = document.getElementById("multi2");
 var multi3 = document.getElementById("multi3");
 
-/* ?email=meil@meil,senha=123,pontos=092,multi1=1,multi2=1,multi3=1 */
+/* ?email=meil@meil,senha=123,pontos=092,multi1=1,multi2=1,multi3=1 *//* 
 
-alert("Email:" + email);
+alert("Email:" + email); */
 
 var canvas = document.getElementById("jogo");
 
 var context = canvas.getContext("2d");
 
-context.fillStyle = "#FF0000";
+var Imagem = function(x, y, w, h, ctx, img)
+{
+    this.start = (new Date()).getTime();
+	this.current;	
+    this.currentFrame = 0.;
+    
+    this.images = new Array();
+    this.numFrames = 4;
+    
+    this.w = w;
+    this.h = h;
+    this.x = x;
+    this.y = y;
+
+    for (var i = 0; i < this.numFrames; i++)
+	{
+	    this.images[i] = new Image();
+		this.images[i].src = "img/"+ img + (i+1) + ".png";
+    }
+    
+    this.deltaTime = function()
+	{
+		this.current = (new Date()).getTime();
+		this.elapsed = this.current - this.start;
+		this.start = this.current;
+		var delta = this.elapsed / 1000.;			
+		return delta;
+    }
+
+    this.update = function()
+	{
+		var delta = this.deltaTime();	
+		this.currentFrame += delta * 10;
+	}
+    
+    this.draw = function()
+	{
+		ctx.drawImage(this.images[Math.floor(this.currentFrame)%this.numFrames], x, y, w, h);		
+	}
+}
+
+
+/* context.fillStyle = "#FF0000";
 
 context.fillRect(0, 0, 500,500);
 
@@ -33,24 +75,24 @@ context.fillRect(520,230, 220,50);
 
 context.fillRect(520,300, 220,50);
 
-context.fillRect(520,370, 220,50);
+context.fillRect(520,370, 220,50); */
 
+var multImg1 = new Imagem(31.5, 25.7, 39, 39, context, "doge");
 
-var image = new Image();
-image.src = "img/olar.png";
-image.onload = function()
-{
-    context.drawImage(image, 2,2,50,50);
-    context.drawImage(image, 60,60,50,50);
-    context.drawImage(image, 120,120,50,50);
-    context.drawImage(image, 300,160,50,50);
-    context.drawImage(image, 160,300,50,50);
+var multImg1_2 = new Imagem(87.5, 25.7, 39, 39, context, "doge");
+
+function loop()
+{	
+    multImg1.update();
+    multImg1_2.update();
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    multImg1.draw();
+    multImg1_2.draw();
+    	
+    	
+    setTimeout(loop, 30);
 }
 
-
-var img = new Image();
-img.src = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
-img.onload = function()
-{
-    context.drawImage(img, 200,200);
-}
+loop();
