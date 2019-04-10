@@ -81,6 +81,14 @@ var multImg1 = new Imagem(31.5, 25.7, 39, 39, context, "doge");
 
 var multImg1_2 = new Imagem(87.5, 25.7, 39, 39, context, "doge");
 
+
+for (var i = 0; i <= 2; i++)
+{
+    for (var i = 0; i <= 1; i++)
+    {
+        
+    }
+}
 function loop()
 {	
     multImg1.update();
