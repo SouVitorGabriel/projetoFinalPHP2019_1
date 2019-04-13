@@ -17,7 +17,7 @@
     {
         $email = "nada";
         $senha = "";
-        $pontos = 0;
+        $pontos = 1;
         $multi1 = 1;
         $multi2 = 1;
         $multi3 = 1;
@@ -43,7 +43,7 @@
     
     </style>
   </head>
-  <body>
+  <body onload="pegaPontos()">
   <input type="hidden" id="email" name="email" value="<?php echo $email ?>">
   <input type="hidden" id="senha" name="senha" value="<?php echo $senha ?>">
   <input type="hidden" id="pontos" name="pontos" value="<?php echo $pontos ?>">
