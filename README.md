@@ -1,2 +1,2 @@
-# projetoFinalPHP2019_1
-Repositório de armazenamento do projeto final de M7 dos estudantes da Ctrl+Play.
+# shibaMiner
+Repositório de armazenamento do projeto de jogo shibaMiner, um estudo de programação Javascript em canvas baseado no [Dogeminer](https://dogeminer.se)
