@@ -244,7 +244,7 @@ for (var i = 0; i <= 1; i++)
 {
     for (var j = 0; j <= 3; j++)
     {
-        blocks1[i][j] =  new DrawDoge(posX, posY, 39, 39, context, "Doggo_Black");
+        blocks1[i][j] =  new DrawDoge(posX, posY, 80, 80, context, "Doggo_Black");
         blocks1Draw[i][j] =  false;
         posX += 56;
     }
@@ -258,7 +258,7 @@ for (var i = 0; i <= 1; i++)
 {
     for (var j = 0; j <= 3; j++)
     {
-        blocks2[i][j] =  new DrawDoge(posX, posY, 39, 39, context, "Doggo_Red");
+        blocks2[i][j] =  new DrawDoge(posX, posY, 80, 80, context, "Doggo_Red");
         blocks2Draw[i][j] = false;
         posX += 56;
     }
@@ -272,7 +272,7 @@ for (var i = 0; i <= 1; i++)
 {
     for (var j = 0; j <= 3; j++)
     {
-        blocks3[i][j] =  new DrawDoge(posX, posY, 39, 39, context, "Doggo_White");
+        blocks3[i][j] =  new DrawDoge(posX, posY, 80, 80, context, "Doggo_White");
         blocks3Draw[i][j] = false;
         posX += 56;
     }
