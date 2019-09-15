@@ -76,6 +76,48 @@ var Imagem = function(x, y, w, h, ctx, img)
 	}
 }
 
+var DrawDoge = function(x, y, w, h, ctx, img)
+{
+    this.start = (new Date()).getTime();
+	this.current;	
+    this.currentFrame = 0.;
+    
+    this.images = new Array();
+    this.numFrames = 2;
+    
+    this.w = w;
+    this.h = h;
+    this.x = x;
+    this.y = y;
+
+    for (var i = 0; i < this.numFrames; i++)
+	{
+	    this.images[i] = new Image();
+		this.images[i].src = "img/"+ img + (i+1) + ".png";
+    }
+    
+    this.deltaTime = function()
+	{
+		this.current = (new Date()).getTime();
+		this.elapsed = this.current - this.start;
+		this.start = this.current;
+		var delta = this.elapsed / 1000.;			
+		return delta;
+    }
+
+    this.update = function()
+	{
+		var delta = this.deltaTime();	
+		this.currentFrame += delta * 4;
+	}
+    
+    this.draw = function(sim)
+	{
+        if (sim)
+		ctx.drawImage(this.images[Math.floor(this.currentFrame)%this.numFrames], x, y, w, h);		
+	}
+}
+
 var drawText = function(x,y,text,color)
 	{
 		context.fillStyle = color;
@@ -179,7 +221,7 @@ canvas.addEventListener("mousedown", _mouseDown, false);
 
 
 //botoes
-var dogePoints = new Imagem(305, 114, 200, 200, context, "doge");
+var dogePoints = new DrawDoge(305, 114, 200, 200, context, "Doggo_Black");
 
 var upgrade1 = new Imagem(558.6, 25.7, 190.7, 68.3, context, "button");
 
@@ -202,7 +244,7 @@ for (var i = 0; i <= 1; i++)
 {
     for (var j = 0; j <= 3; j++)
     {
-        blocks1[i][j] =  new Imagem(posX, posY, 39, 39, context, "doge");
+        blocks1[i][j] =  new DrawDoge(posX, posY, 39, 39, context, "Doggo_Black");
         blocks1Draw[i][j] =  false;
         posX += 56;
     }
@@ -216,7 +258,7 @@ for (var i = 0; i <= 1; i++)
 {
     for (var j = 0; j <= 3; j++)
     {
-        blocks2[i][j] =  new Imagem(posX, posY, 39, 39, context, "doge");
+        blocks2[i][j] =  new DrawDoge(posX, posY, 39, 39, context, "Doggo_Red");
         blocks2Draw[i][j] = false;
         posX += 56;
     }
@@ -230,7 +272,7 @@ for (var i = 0; i <= 1; i++)
 {
     for (var j = 0; j <= 3; j++)
     {
-        blocks3[i][j] =  new Imagem(posX, posY, 39, 39, context, "doge");
+        blocks3[i][j] =  new DrawDoge(posX, posY, 39, 39, context, "Doggo_White");
         blocks3Draw[i][j] = false;
         posX += 56;
     }
